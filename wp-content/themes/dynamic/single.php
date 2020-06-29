@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 
+<?php while(have_posts()) : the_post(); ?>
   <main class="container site-content">
       <article class="entry single">
         <header class="entry-header">
