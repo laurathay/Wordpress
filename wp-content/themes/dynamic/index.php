@@ -10,6 +10,12 @@ On appelle donc la fonction get_header(); pour inclure ce fichier header.php.
     <h1 class="page-title">Blog</h1>
     <!-- TODO Volontaire - Déclarer une zone de menu "Menu des catégories" et
     l'insérer dynamiquement ci-après -->
+    <?php wp_nav_menu(
+      array(
+        'theme_location' => 'category'
+      )
+    );
+    ?>
     <nav class="navigation navigation-blog" id="navigation-blog">
       <!-- remplacer les ul li par ca -->
       <?php wp_nav_menu(
@@ -33,7 +39,7 @@ On appelle donc la fonction get_header(); pour inclure ce fichier header.php.
         <?php while(have_posts()) : the_post(); ?>
       <article class="entry post">
         <header class="entry-header">
-          
+
           <!-- has_post_thumbnail() on vérifie si l'article a une vignette -->
           <?php if(has_post_thumbnail()) : ?>
             <!-- Si oui (has_post_thumbnail() renvoie true) on affiche cette image
@@ -108,13 +114,11 @@ On appelle donc la fonction get_header(); pour inclure ce fichier header.php.
     <!-- TODO A la maison - Déplacer la balise <aside> dans un fichier sidebar.php
     et faire un appel de fonction pour inclure le fichier à ce niveau.
     Indice : get_<quelque chose> -->
+    <?php get_sidebar(); ?>
+
     <!-- TODO A la maison - Déclarer une zone de widgets et l'insérer dynamiquement ci-après -->
-    <aside class="sidebar" id="sidebar">
-      <div class="widget">
-        <h3 class="widget-title widgettitle">Zone de widgets</h3>
-        <p>Ajout dynamique des titres et contenus des widgets.</p>
-      </div>
-    </aside>
+    <!-- je l'ai déclaré dans sidebar.php avec dynamic sidebar -->
+
   </main>
   <!-- De la même manière que pour l'en-tête. On déplace le contenu du pied de
   page dans un fichier footer.php pour factoriser le code. Le pied de page est
