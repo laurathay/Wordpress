@@ -6,9 +6,13 @@
 function descodeuses_setup() {
   register_nav_menu(
     array(
-      'primary' => 'Menu principal'
+      'primary' => 'Menu principal',
+      'secondary' => 'Menu secondaire',
+      'footer' => 'Menu pied de page',
+      'social' => 'Menu réseaux sociaux',
     )
   );
+
 }
 
 

@@ -50,25 +50,26 @@
     l'insérer dynamiquement ci-après -->
     <div class="navigation-secondary" id="navigation-secondary">
       <nav class="navigation navigation-bottom">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="index.html" class="active">Blog</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
+        <?php
+            wp_nav_menu(
+              array(
+                'theme_location' => 'footer'
+              )
+            );
+         ?>
       </nav>
     </div>
     <!-- TODO A la maison - Déclarer une zone de menu "réseaux sociaux" et
     l'insérer dynamiquement ci-après -->
     <div class="social-medias">
       <nav class="navigation navigation-socials" id="navigation-socials">
-        <ul>
-          <li><a href="http://twitter.com"></a></li>
-          <li><a href="http://instagram.com"></a></li>
-          <li><a href="http://facebook.com"></a></li>
-          <li><a href="http://pinterest.com"></a></li>
-          <li><a href="http://youtube.com"></a></li>
-        </ul>
+        <?php
+            wp_nav_menu(
+              array(
+                'theme_location' => 'social'
+              )
+            );
+         ?>
       </nav>
     </div>
   </section>

@@ -1,0 +1,18 @@
+2020-06-30T09:40:19+00:00 CRITICAL syntax error, unexpected ''secondary'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' dans /Users/laurathay/Desktop/Projets/Wordpress/wp-content/themes/dynamic/functions.php à la ligne 10
+
+2020-06-30T09:42:21+00:00 CRITICAL syntax error, unexpected ''secondary'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' dans /Users/laurathay/Desktop/Projets/Wordpress/wp-content/themes/dynamic/functions.php à la ligne 10
+
+2020-06-30T09:44:22+00:00 CRITICAL syntax error, unexpected ''secondary'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' dans /Users/laurathay/Desktop/Projets/Wordpress/wp-content/themes/dynamic/functions.php à la ligne 10
+
+2020-06-30T09:46:22+00:00 CRITICAL syntax error, unexpected ''secondary'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' dans /Users/laurathay/Desktop/Projets/Wordpress/wp-content/themes/dynamic/functions.php à la ligne 10
+
+2020-06-30T09:48:23+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function register_nav_menu(), 1 passed in /Users/laurathay/Desktop/Projets/Wordpress/wp-content/themes/dynamic/functions.php on line 9 and exactly 2 expected in /Users/laurathay/Desktop/Projets/Wordpress/wp-includes/nav-menu.php:135
+Stack trace:
+#0 /Users/laurathay/Desktop/Projets/Wordpress/wp-content/themes/dynamic/functions.php(9): register_nav_menu(Array)
+#1 /Users/laurathay/Desktop/Projets/Wordpress/wp-includes/class-wp-hook.php(287): descodeuses_setup('')
+#2 /Users/laurathay/Desktop/Projets/Wordpress/wp-includes/class-wp-hook.php(311): WP_Hook->apply_filters(NULL, Array)
+#3 /Users/laurathay/Desktop/Projets/Wordpress/wp-includes/plugin.php(478): WP_Hook->do_action(Array)
+#4 /Users/laurathay/Desktop/Projets/Wordpress/wp-settings.php(518): do_action('after_setup_the...')
+#5 /Users/laurathay/Desktop/Projets/Wordpress/wp-config.php(98): require_once('/Users/lauratha...')
+#6 /Users/laurathay/Desktop/Projets/Wordpress/wp-load.php(37): require_once('/Users/laurat dans /Users/laurathay/Desktop/Projets/Wordpress/wp-includes/nav-menu.php à la ligne 135
+

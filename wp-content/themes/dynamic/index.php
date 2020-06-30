@@ -11,13 +11,14 @@ On appelle donc la fonction get_header(); pour inclure ce fichier header.php.
     <!-- TODO Volontaire - Déclarer une zone de menu "Menu des catégories" et
     l'insérer dynamiquement ci-après -->
     <nav class="navigation navigation-blog" id="navigation-blog">
-      <ul>
-        <li><a href="#" class="active">Tous</a></li>
-        <li><a href="#">Peinture</a></li>
-        <li><a href="#">Sculpture</a></li>
-        <li><a href="#">Exposition</a></li>
-        <li><a href="#">Actualité</a></li>
-      </ul>
+      <!-- remplacer les ul li par ca -->
+      <?php wp_nav_menu(
+        array(
+          'theme_location' => 'secondary'
+        )
+      );
+      ?>
+
     </nav>
   </section>
   <main class="container site-content">
@@ -32,6 +33,7 @@ On appelle donc la fonction get_header(); pour inclure ce fichier header.php.
         <?php while(have_posts()) : the_post(); ?>
       <article class="entry post">
         <header class="entry-header">
+          
           <!-- has_post_thumbnail() on vérifie si l'article a une vignette -->
           <?php if(has_post_thumbnail()) : ?>
             <!-- Si oui (has_post_thumbnail() renvoie true) on affiche cette image

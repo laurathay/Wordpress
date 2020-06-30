@@ -10,6 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/4e5f136f21.js" crossorigin="anonymous"></script>
   <?php wp_head(); ?> <!-- pour que wordpress puisse le CMS wordpress puisse mettre sa tambouille une fois fini le head -->
+  <style media="screen">
+    .page-header {
+        background-image: url("<?php bloginfo('template_url'); ?>/assets/images/louvre-amy-leigh-barnard-unsplash.jpg");
+        }
+        @font-face {
+          font-family: "FontAwesome";
+          font-weight: normal;
+          font-style : normal;
+          src : url("<?php bloginfo('template_url'); ?>/assets/fonts/fontawesome/webfonts/fa-brands-400.woff2") format("woff2");
+        }
+  </style>
 </head>
 <body <?php body_class();  ?>> <!-- pour intégrer la mise en page de wordpress -->
 <header class="site-header">
