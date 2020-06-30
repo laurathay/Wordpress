@@ -1,62 +1,65 @@
 <?php get_header(); ?>
-
-<?php while(have_posts()) : the_post(); ?>
   <main class="container site-content">
+    <?php if(have_posts()) : ?>
+      <?php while(have_posts()) : the_post(); ?>
       <article class="entry single">
         <header class="entry-header">
           <section class="entry-metadata">
             <section class="entry-data">
-              <h4 class="author"><a href="#">Ada Lovelace</a></h4>
-              <h6 class="publish-date">29 juin 2020</h6>
-              <h5 class="entry-category"><a href="#">Actualité</a></h5>
+              <h4 class="author">
+                <!-- Quand on clique sur le nom de l'auteur, on veut rediriger vers
+              la page de l'auteur (c'est-à-dire page des articles écrits par l'auteur)
+              - get_author_posts_url() : récupère l'URL de la page de l'auteur.
+                                      Cette fonction prend l'identifiant de l'auteur en paramètre
+              - get_the_author_meta('ID') : permet de récupérer parmi toutes les informations
+                                      de l'auteur, son identifiant. On précise donc 'ID' en argument.
+                -->
+                <a href="<?php get_author_posts_url(get_the_author_meta('ID')); ?>">
+                  <!-- the_author() : on récupère le nom de l'auteur (chaine de caractères) -->
+                <?php the_author(); ?></a>
+              </h4>
+              <h6 class="publish-date"><?php the_time('d M Y'); ?></h6>
+              <?php
+              $categories = get_the_category();
+              $separator = " ";
+              $output = '';
+
+              if($categories) {
+                forEach($categories as $category) {
+                  $output .= '<h5 class="entry-category"><a href="'.get_category_link($category
+                  ->term_id).'">'.$category->cat_name .'</a></h5>' . $separator;
+                }
+              }
+              echo trim($output, $separator);
+              ?>
             </section>
             <h2 class="entry-title">
-              <a href="single.html">Les visiteurs retrouvent La Joconde</a>
+              <?php the_title(); ?>
             </h2>
           </section>
-          <img src="./assets/images/louvre-alicia-steels-unsplash.jpg" alt="Foule"
-          class="featured-image">
+          <?php
+          if(has_post_thumbnail()) :
+            $thumbnail_id = get_post_thumbnail_id();
+            $thumbnail_alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+            $thumbnail_title = get_the_title($thumbnail_id);
+            the_post_thumbnail('full', ['class' => 'featured-image', 'title' => $thumbnail_title,
+            'alt' => $thumbnail_alt]);
+           endif;
+           ?>
         </header>
         <section class="entry-content">
-          <p>
-            Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deseru mollit anim id est laborum.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-            do eiusmod tempor incididunt…
-          </p>
-
-          <p>
-            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-            aut fugit, sed quia consequuntur magni dolores eos qui ratione
-            voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem i
-            psum quia dolor sit amet, consectetur, adipisci velit, sed quia
-            non numquam eius modi tempora incidunt ut labore et dolore magnam
-            aliquam quaerat voluptatem.
-          </p>
-
-          <p>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo.
-          </p>
-
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur.
-          </p>
+          <?php the_content(); ?>
         </section>
         <footer class="entry-footer">
-          <nav class="navigation pagination entry-pagination">
-            <ul>
-              <li><a href="#"><i class="fas fa-arrow-left"></i> 5 statues à voir absolument au Louvre</a></li>
-              <li><a href="#">La Joconde victime de son succès <i class="fas fa-arrow-right"></i></a></li>
-            </ul>
-          </nav>
+          <?php
+          // Structure du tableau d'arguments : https://developer.wordpress.org/reference/functions/get_the_post_navigation/
+          the_post_navigation(
+            array(
+              'prev_text'          => '<i class="fas fa-arrow-left"></i> %title',
+              'next_text'          => '%title <i class="fas fa-arrow-right"></i>'
+            )
+          );
+          ?>
           <section class="comments">
             <h3 class="comments-title">Laisser un commentaire</h3>
             <form class="comment-form" action="index.html" method="post">
@@ -71,6 +74,8 @@
           </section>
         </footer>
       </article>
+    <?php endwhile; ?>
+  <?php endif; ?>
     <aside class="sidebar">
       <div class="widget">
         <h3 class="widget-title">Zone de widgets</h3>
@@ -78,4 +83,4 @@
       </div>
     </aside>
   </main>
-<?php get_footer() ?>
+  <?php get_footer(); ?>
