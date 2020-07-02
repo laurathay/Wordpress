@@ -21,11 +21,17 @@ function descodeuses_setup() {
   // en charge un logo personnalisé.
   // indice : add_theme_support
   // 1. Que fait cette fonction ?
-  //
+  // Elle indique a wordpress que notre theme prend en charge une certaine fonctionnalité
   // 2. Quel argument faut-il passer ? (section 'Parameters')
-  //
+  // custom logo (dans Parameters et voir dans feature et regarder ce qui nous concerne)
   // 3. Faire l'appel de fonction ci-après (ne passer que le premier argument) :
-
+  function wpc_theme_support() {
+  	add_theme_support('custom-logo', array(
+  		'flex-height' => true,
+  		'flex-width'  => true,
+  	));
+  }
+  add_action('after_setup_theme','wpc_theme_support');
 }
 
 // WordPress étant un gros CMS, il est nécessaire de configurer beaucoup de
@@ -94,5 +100,5 @@ add_action('widgets_init', 'descodeuses_init_widgets');
 // TODO Autonomie - Inclure le fichier customizer.php en utilisant la
 // fonction get_template_directory()
 // https://developer.wordpress.org/reference/functions/get_template_directory/#user-contributed-notes
-
+require get_template_directory() . '/inc/customizer.php' ;
  ?>

@@ -1,3 +1,25 @@
+<section class="comments">
+  <h3 class="comments-title"><?php comments_number('No comments', '1 comment', '% comments'); ?>  pour <?php the_title(); ?></h3>
+  <?php
+  wp_list_comments();
+
+  paginate_comments_links(
+    array(
+      'prev_text'          => '<i class="fas fa-arrow-left"></i> Prédédent',
+      'next_text'          => 'Suivant <i class="fas fa-arrow-right"></i>'
+    )
+  );
+
+  comment_form(
+    array(
+      'title_reply' => 'Laisser un commentaire',
+      'label_submit' => 'Publier mon commentaire'
+
+    )
+  );
+   ?>
+</section>
+
 <div id="commentaires" class="comments">
     <?php if ( have_comments() ) : ?>
         <h2 class="comments__title">

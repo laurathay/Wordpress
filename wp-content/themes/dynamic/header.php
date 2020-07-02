@@ -84,7 +84,13 @@ du menu d'administration à l'accueil du site -->
       - bloginfo() : récupérer l'url du site (pour redirection) et le nom du site
         > Quels arguments faut-il passer pour avoir ces informations ?
       -->
-      <a href="index.html">Site du Louvre</a>
+
+      <?php
+        if (has_custom_logo()) :
+          the_custom_logo();
+        else : ?>
+         <a href="index.html">Site du Louvre</a>
+         
     </div>
     <nav class="navigation navigation-aside">
       <ul>
