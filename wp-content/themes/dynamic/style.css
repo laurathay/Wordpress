@@ -353,13 +353,6 @@ template {
 4.0 Typography
 --------------------------------------------------------------*/
 
-@font-face {
-  font-family: "FontAwesome";
-  font-weight: normal;
-  font-style : normal;
-  src : url("../fonts/fontawesome/webfonts/fa-brands-400.woff2") format("woff2");
-}
-
 :root {
   --font-family: "Poppins", sans-serif;
   --font-formatted: "Courier", Courier, monospace;
@@ -762,10 +755,6 @@ html {
 	box-sizing: border-box;
 }
 
-:not(.mobile-navigation) {
-  max-width: 100%;
-}
-
 *,
 *:before,
 *:after {
@@ -799,8 +788,15 @@ body {
 }
 
 .site-branding img {
-  height: 1.72rem;
+  height: 2rem;
   max-width: 100%;
+	width: auto;
+}
+
+.site-branding {
+  text-transform: uppercase;
+	font-weight: 600;
+	font-size: 2rem;
 }
 
 /*--------------------------------------------------------------
@@ -878,6 +874,7 @@ body {
 .entry .featured-image {
   max-width: 100%;
   margin-bottom: 2rem;
+	height: auto;
 }
 
 .entry-title {
@@ -908,7 +905,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--color-background);
+  background-color: var(--color-accent);
   color: var(--color-background);
 }
 
@@ -916,14 +913,34 @@ body {
   color: var(--color-background);
 }
 
+.entry.page {
+    width: 100%;
+}
+
 /*--------------------------------------------------------------
 11.0 Navigation
 --------------------------------------------------------------*/
 
-.navigation {
+.navigation,
+.nav-links {
   display: flex;
   align-items: center;
   line-height: 1.78rem;
+	width: 100%;
+	justify-content: center;
+}
+
+.post-navigation .nav-links {
+	justify-content: space-between;
+}
+
+.page-numbers.current {
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.page-numbers {
+    margin-right: .7rem;
 }
 
 .navigation ul {
@@ -982,7 +999,8 @@ body {
   text-align: right;
 }
 
-.entry-pagination {
+.entry-pagination,
+.post-navigation {
   border-top: .07rem solid var(--color-light);
   padding-top: 2rem;
 }
@@ -1022,8 +1040,35 @@ body {
   color: var(--color-background);
 }
 
-.navigation-socials a {
+.menu-item-has-children .sub-menu {
+	display: none;
+}
+
+.menu-item-has-children:hover > .sub-menu {
+	display: inline-block;
+	position: absolute;
+	top: 2rem;
+	left: 0;
+	padding: 1rem;
+	background: var(--color-background);
+	box-sizing: content-box;
+	width: 100%;
+	z-index: 10;
+}
+
+.sub-menu li {
+	display: flex;
+	width: 100%;
+}
+
+.navigation-socials a,
+.menu-item-has-children::after {
   font-family: "FontAwesome", FontAwesome;
+}
+
+.menu-item-has-children::after {
+    content: '\f107';
+		margin: auto .3rem;
 }
 
 .navigation-socials a[href*="twitter.com"]::before {
@@ -1046,6 +1091,26 @@ body {
     content: "\f167";
 }
 
+.navigation-socials a[href*="dailymotion.com"]::before {
+    content: "\f952";
+}
+
+.navigation-socials a[href*="vimeo.com"]::before {
+    content: "\f27d";
+}
+
+.navigation-socials a[href*="spotify.com"]::before {
+    content: "\f1bc";
+}
+
+.navigation-socials a[href*="github.com"]::before {
+    content: "\f09b";
+}
+
+.navigation-socials a[href*="gitlab.com"]::before {
+    content: "\f296";
+}
+
 /*--------------------------------------------------------------
 12.0 Comments
 --------------------------------------------------------------*/
@@ -1056,13 +1121,47 @@ section.comments {
   border-top: .07rem solid var(--color-light);
 }
 
-.comment-form > * {
+.comment-form * {
   width: 100%;
-  text-align: left;
+}
+
+.comment-form label {
+	text-align: left;
 }
 
 .comment-form input[type="submit"] {
   width: auto;
+}
+
+.comment-reply-title {
+    margin-top: 5rem;
+}
+
+.comment {
+  list-style: none;
+	padding: 2rem;
+	text-align: left;
+}
+
+.comments .children {
+  margin: 1rem auto;
+}
+
+.comments li.comment:nth-child(2n+1) {
+    background: #eee;
+}
+
+.comment-meta,
+.comment-author {
+  margin-bottom: 1rem;
+}
+
+.comment-form-cookies-consent {
+	display: flex;
+}
+
+input#wp-comment-cookies-consent {
+	width: auto;
 }
 
 /*--------------------------------------------------------------
@@ -1080,14 +1179,19 @@ section.comments {
 }
 
 .widgets-section,
-.widget {
+.sidebar .widget {
   padding-bottom: 2rem;
   margin-bottom: 2rem;
   border-bottom: .07rem solid var(--color-light);
 }
 
-.widget-title {
-  margin-top: 0;
+.widget-title,
+.widgettitle {
+	margin-top: 0;
+	font-size: .86rem;
+	font-weight: 600;
+	line-height: 1.78rem;
+	text-transform: uppercase;
 }
 
 /*--------------------------------------------------------------

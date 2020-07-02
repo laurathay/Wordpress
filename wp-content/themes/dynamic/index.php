@@ -6,25 +6,24 @@ différents ayant le même en-tête.
 On appelle donc la fonction get_header(); pour inclure ce fichier header.php.
 -->
 <?php get_header(); ?>
+<!-- TODO En autonomie - En vous référant à page.php, ajouter un attribut style
+à la section "page-header" pour lui ajouter une image de fond provenant du
+Customizer.
+Penser à vérifier si la vignette est bien définie.
+Utiliser la fonction get_theme_mod() - ne passer que le premier argument
+ -->
   <section class="page-header">
     <h1 class="page-title">Blog</h1>
     <!-- TODO Volontaire - Déclarer une zone de menu "Menu des catégories" et
     l'insérer dynamiquement ci-après -->
-    <?php wp_nav_menu(
-      array(
-        'theme_location' => 'category'
-      )
-    );
-    ?>
     <nav class="navigation navigation-blog" id="navigation-blog">
-      <!-- remplacer les ul li par ca -->
-      <?php wp_nav_menu(
+      <?php
+      wp_nav_menu(
         array(
-          'theme_location' => 'secondary'
+          'theme_location'  => 'secondary'
         )
       );
-      ?>
-
+       ?>
     </nav>
   </section>
   <main class="container site-content">
@@ -39,7 +38,6 @@ On appelle donc la fonction get_header(); pour inclure ce fichier header.php.
         <?php while(have_posts()) : the_post(); ?>
       <article class="entry post">
         <header class="entry-header">
-
           <!-- has_post_thumbnail() on vérifie si l'article a une vignette -->
           <?php if(has_post_thumbnail()) : ?>
             <!-- Si oui (has_post_thumbnail() renvoie true) on affiche cette image
@@ -105,20 +103,18 @@ On appelle donc la fonction get_header(); pour inclure ce fichier header.php.
   <!-- TODO Volontaire - Pagination de l'ensemble des articles - utiliser the_posts_pagination()
   Structure du tableau d'arguments : https://developer.wordpress.org/reference/functions/paginate_links/ -->
       <nav class="navigation pagination">
-        <ul>
-          <li><a href="#"><i class="fas fa-arrow-left"></i> Précédent</a></li>
-          <li><a href="#">Suivant <i class="fas fa-arrow-right"></i></a></li>
-        </ul>
+        <?php
+        // Structure du tableau d'arguments : https://developer.wordpress.org/reference/functions/paginate_links/
+        the_posts_pagination(
+          array(
+            'prev_text'          => '<i class="fas fa-arrow-left"></i> Précédent',
+            'next_text'          => 'Suivant <i class="fas fa-arrow-right"></i>'
+          )
+        );
+        ?>
       </nav>
     </section>
-    <!-- TODO A la maison - Déplacer la balise <aside> dans un fichier sidebar.php
-    et faire un appel de fonction pour inclure le fichier à ce niveau.
-    Indice : get_<quelque chose> -->
-    <?php get_sidebar(); ?>
-
-    <!-- TODO A la maison - Déclarer une zone de widgets et l'insérer dynamiquement ci-après -->
-    <!-- je l'ai déclaré dans sidebar.php avec dynamic sidebar -->
-
+<?php get_sidebar(); ?>
   </main>
   <!-- De la même manière que pour l'en-tête. On déplace le contenu du pied de
   page dans un fichier footer.php pour factoriser le code. Le pied de page est

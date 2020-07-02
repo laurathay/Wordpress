@@ -1,87 +1,98 @@
-
-<!-- pour rajouter une nouvelle section de menu  -->
-<!-- primary est la clé puis la valeur apres la flèche le nom de la zone de menu -->
-
 <?php
+
+// On crée une fonction qui regroupera tous les appels à des fonctions WP
+// prédéfinies qui ont pour but de configurer les fonctionnnalités prises
+// en charge par notre thème - toutes nos zones de menu seront déclarées ici
 function descodeuses_setup() {
+  // On enregistre une nouvelle zone de menu avec la fonction
+  // register_nav_menus()
   register_nav_menus(
     array(
+      // on définit la clé de notre menu qui servira d'identifiant pour pouvoir
+      // l'afficher sur le site
       'primary' => 'Menu principal',
       'secondary' => 'Menu secondaire',
-      'footer' => 'Menu pied de page',
-      'social' => 'Menu réseaux sociaux',
-      'category' => 'Menu des catégories'
+      'footer' => 'Menu de pied de page',
+      'social' => 'Menu des réseaux sociaux'
     )
   );
 
+  // TODO En autonomie - Activer la fonctionnalité WP permettant de prendre
+  // en charge un logo personnalisé.
+  // indice : add_theme_support
+  // 1. Que fait cette fonction ?
+  //
+  // 2. Quel argument faut-il passer ? (section 'Parameters')
+  //
+  // 3. Faire l'appel de fonction ci-après (ne passer que le premier argument) :
+
 }
 
+// WordPress étant un gros CMS, il est nécessaire de configurer beaucoup de
+// paramètres pour que tout fonctionne correctement (tableau de bord,
+// plugins, annuaire de sthèmes, notre propre thème, etc.)
+// IMPORTANT : par sécurité, il faut éviter d'appeler nos propres fonctions
+// sans utiliser add_action car on ne sait pas à quel niveau de configuration en
+// est WordPress !
+// add_action permet de spécifier à WP d'executer/ d'appeler automatiquement
+// une fonction (nom passé en deuxième paramètre) seulement après avoir exécuté
+// une autre fonction (nom passé en premier paramètre).
+// ci-dessous, il faut lire : "après avoir exécuté la fonction after_setup_theme,
+// exécuter la fonction descodeuses_setup"
+// De cette façon, il est certain que WP a terminé ses propres configurations
+// avant de prendre en charge les nôtres. On évite donc les bugs ! :)
 add_action('after_setup_theme', 'descodeuses_setup');
- ?>
-<!-- appel de fonction automatique à la chaîne avec le premier parametre,le nom de function wordpress lié au thème et le 2eme parametre le nom de notre fonction -->
 
-<!-- pour insérer la zone de widget -->
-<?php
-function descodeuses_widgets_init(){
-  register_sidebar( array(
-    'name'          => __( 'Sidebar'),
-    'id'            => 'sidebar',
-    'description'   => __( 'Zone de widgets'),
-    'before_widget' => '<div class="widget">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h3 class="widget-title widgettitle">',
-    'after_title'   => '</h3>',
-    'before_paragraph' => '<p>',
-    'after_paragraph' => '</p>'
-  ));
-  register_sidebar( array(
-    'name'          => esc_html__( 'Footer Widgets'),
-    'id'            => 'widgets-section-1',
-    'description'   => esc_html__( 'Zone de widgets 1'),
-   'before_widget' => '<div  class="widgets-sections">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h4 class="widget-title widgettitle">',
-    'after_title'   => '</h2>',
-    'image'         => '<img src="./assets/images/logo-louvre.png" alt="Logo du site" >',
-    'before_paragraph' =>'<p>',
-    'after_paragraph' => '</p>'
-  ));
-  register_sidebar( array(
-    'name'          => esc_html__( 'Footer Widgets 2'),
-    'id'            => 'widgets-section-2',
-    'description'   => esc_html__( 'Zone de widgets 2'),
-   'before_widget' => '<div  class="widgets-sections">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h4 class = "widget-title widgettitle">',
-    'after_title'   => '</h2>',
-    'image'         => '<img src="./assets/images/logo-louvre.png" alt="Logo du site" >',
-    'before_paragraph' =>'<p>',
-    'after_paragraph' => '</p>'
-  ));
-  register_sidebar( array(
-    'name'          => esc_html__( 'Footer Widgets 3'),
-    'id'            => 'widgets-section-3',
-    'description'   => esc_html__( 'Zone de widgets 3'),
-   'before_widget' => '<div  class="widgets-sections">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h4 class = "widget-title widgettitle">',
-    'after_title'   => '</h4>',
-    'image'         => '<img src="./assets/images/logo-louvre.png" alt="Logo du site" >',
-    'before_paragraph' =>'<p>',
-    'after_paragraph' => '</p>'
-  ));
-  register_sidebar( array(
-    'name'          => esc_html__( 'Footer Widgets 4'),
-    'id'            => 'widgets-section-4',
-    'description'   => esc_html__( 'Zone de widgets 4'),
-   'before_widget' => '<div  class="widgets-sections">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h4 class = "widget-title widgettitle">',
-    'after_title'   => '</h4>',
-    'image'         => '<img src="./assets/images/logo-louvre.png" alt="Logo du site" >',
-    'before_paragraph' =>'<p>',
-    'after_paragraph' => '</p>'
-  ));
+function descodeuses_init_widgets() {
+  // TODO COURS - Enregistrer une zone de widget N°1
+  register_sidebar(
+    array(
+      'id'  => 'widgets-section-1',
+      'name'  => 'Zone de widgets 1',
+      'description' => 'Description de la zone de widgets',
+      'before_widget' => '<div class="widget">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h4 class="widget-title widgettitle">',
+      'after_title' => '</h4>'
+    )
+  );
+
+  // TODO En autonomie - Enregister les zones de widgets N°2 et N°3
+  register_sidebar(
+    array(
+      'id'  => 'widgets-section-2',
+      'name'  => 'Zone de widgets 2',
+      'description' => 'Description de la zone de widgets',
+      'before_widget' => '<div class="widget">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h4 class="widget-title widgettitle">',
+      'after_title' => '</h4>'
+    )
+  );
+
+  register_sidebar(
+    array(
+      'id'  => 'widgets-section-3',
+      'name'  => 'Zone de widgets 3',
+      'description' => 'Description de la zone de widgets',
+      'before_widget' => '<div class="widget">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h4 class="widget-title widgettitle">',
+      'after_title' => '</h4>'
+    )
+  );
+
+  // TODO A la maison - Enregister les zones de widgets N°4 et barre latérale
 }
-do_action( 'widgets_init', 'wp_nav_menu' );
-?>
+
+// Exécution de notre fonction immédiatement après l'exécution de widgets_init
+// (fonction WP prédéfinie lui servant à initialiser les widgets par défaut
+// avant d'enregistrer les nôtres)
+// doc : https://developer.wordpress.org/reference/hooks/widgets_init/
+add_action('widgets_init', 'descodeuses_init_widgets');
+
+// TODO Autonomie - Inclure le fichier customizer.php en utilisant la
+// fonction get_template_directory()
+// https://developer.wordpress.org/reference/functions/get_template_directory/#user-contributed-notes
+
+ ?>

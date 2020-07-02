@@ -32,6 +32,12 @@
               }
               echo trim($output, $separator);
               ?>
+            <h4 class="comments-number">
+              <!-- TODO Afficher dynamiquement le nombre de commentaire en
+                    faisant appel à comments_number() -
+               voir https://developer.wordpress.org/reference/functions/comments_number/#user-contributed-notes -->
+               2 commentaires
+            </h4>
             </section>
             <h2 class="entry-title">
               <?php the_title(); ?>
@@ -53,6 +59,7 @@
         <footer class="entry-footer">
           <?php
           // Structure du tableau d'arguments : https://developer.wordpress.org/reference/functions/get_the_post_navigation/
+          // %title : indique à WP qu'il faut inclure le nom de l'article suivant/ précédent
           the_post_navigation(
             array(
               'prev_text'          => '<i class="fas fa-arrow-left"></i> %title',
@@ -61,7 +68,7 @@
           );
           ?>
           <section class="comments">
-            <h3 class="comments-title">Laisser un commentaire</h3>
+            <h3 class="comments-title">2 commentaires pour "10 conseils pour un site parfait"</h3>
             <form class="comment-form" action="index.html" method="post">
               <label for="name">Nom</label>
               <input type="text" name="name" required>
@@ -76,11 +83,6 @@
       </article>
     <?php endwhile; ?>
   <?php endif; ?>
-    <aside class="sidebar">
-      <div class="widget">
-        <h3 class="widget-title">Zone de widgets</h3>
-        <p>Ajout dynamique des titres et contenus des widgets.</p>
-      </div>
-    </aside>
+  <?php get_sidebar(); ?>
   </main>
   <?php get_footer(); ?>
