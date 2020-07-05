@@ -76,7 +76,8 @@ du menu d'administration à l'accueil du site -->
       </ul>
     </nav>
     <div class="site-branding">
-      <!-- TODO En autonomie - Afficher un logo personnalisé si existant, sinon afficher le nom du site
+      <!-- TODO En autonomie - Afficher un logo personnalisé si existant, sinon
+      afficher le nom du site.
       Quand on clique sur le nom, redirection vers la page d'accueil du site.
       aide :
       - has_custom_logo() : tester si un logo personnalisé a été configuré
@@ -84,13 +85,13 @@ du menu d'administration à l'accueil du site -->
       - bloginfo() : récupérer l'url du site (pour redirection) et le nom du site
         > Quels arguments faut-il passer pour avoir ces informations ?
       -->
-
-      <?php
-        if (has_custom_logo()) :
-          the_custom_logo();
-        else : ?>
-         <a href="index.html">Site du Louvre</a>
-         
+      <?php if(has_custom_logo()) :
+         the_custom_logo();
+       else: ?>
+        <a href="<?php bloginfo('url'); ?>">
+          <?php bloginfo('name'); ?>
+        </a>
+      <?php endif; ?>
     </div>
     <nav class="navigation navigation-aside">
       <ul>

@@ -24,7 +24,10 @@ function descodeuses_setup() {
   // Elle indique a wordpress que notre theme prend en charge une certaine fonctionnalité
   // 2. Quel argument faut-il passer ? (section 'Parameters')
   // custom logo (dans Parameters et voir dans feature et regarder ce qui nous concerne)
-  // 3. Faire l'appel de fonction ci-après (ne passer que le premier argument) :
+  // 3. Faire l'appel de fonction ci-après (ne passer que le premier argument) :add_t
+add_theme_support('custom-logo');
+add_theme_support('post-thumbnail');
+
   function wpc_theme_support() {
   	add_theme_support('custom-logo', array(
   		'flex-height' => true,

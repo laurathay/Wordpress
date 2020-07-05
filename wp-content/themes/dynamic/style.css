@@ -630,6 +630,7 @@ input[type="button"]:focus,
 input[type="submit"]:hover,
 input[type="submit"]:focus {
 	background: var(--color-accent);
+	color: var(--color-background);
 }
 
 /* Placeholder text color -- selectors need to be separate to work. */
@@ -848,6 +849,75 @@ body {
   display: flex;
 }
 
+.custom-selection .entry {
+  margin: 1rem;
+}
+
+.page-header.boxy-header {
+  margin: 0 2.86rem;
+}
+
+.page-header.front-page-header {
+	padding: 0;
+	padding-top: 12.5rem;
+}
+
+.page-description {
+  width: 60%;
+  margin: auto;
+}
+
+.call-to-action,
+.btn-style-1 {
+	background-color: var(--color-background);
+	color: var(--color-accent);
+	transition: all 0.6s;
+}
+
+.btn-style-2 {
+	border: .2rem solid var(--color-background);
+	color: var(--color-background);
+	background: transparent;
+}
+
+.btn-style-3 {
+	border: .2rem solid var(--color-accent);
+}
+
+.custom-quote,
+.custom-section {
+	background-color: var(--color-accent);
+	padding: 5rem;
+	margin-top: 5rem;
+}
+
+.custom-quote-red {
+	background-color: coral;
+}
+
+.custom-quote-green {
+	background-color: lightgreen;
+}
+
+.custom-quote-blue {
+	background-color: midnightblue;
+}
+
+.star-quote {
+	color: var(--color-background);
+	text-align: center;
+	margin: 0;
+	font-weight: 400;
+}
+
+.quote-content {
+	font-style: italic;
+}
+
+.quote-footer::before {
+	content: "— ";
+}
+
 /*--------------------------------------------------------------
 10.5 Posts
 --------------------------------------------------------------*/
@@ -897,7 +967,7 @@ body {
 --------------------------------------------------------------*/
 
 .page-header {
-  background-image: url("../images/louvre-amy-leigh-barnard-unsplash.jpg");
+	background-image: url("../images/louvre-amy-leigh-barnard-unsplash.jpg");
   text-align: center;
   padding: 12.5rem 2.86rem;
   margin: 0;
@@ -1162,6 +1232,10 @@ section.comments {
 
 input#wp-comment-cookies-consent {
 	width: auto;
+}
+
+.comments-pagination {
+	margin-top: 2rem;
 }
 
 /*--------------------------------------------------------------
