@@ -133,12 +133,26 @@ function descodeuses_customize_register($wp_customize) {
   // identifiant : 'fp_texts'
   // description : 'Réglages pour les textes de la page d\'accueil principale.'
   // Cette nouvelle section est une sous-section de 'front_page' (clé 'panel')
-
+  $wp_customize->add_section(
+    'fp_texts',
+    array(
+      'title' => 'Textes et styles',
+      'description'   =>'Réglages pour les textes de la page d\'accueil principale.',
+      'panel' => 'front_page'
+    )
+  );
 
   // TODO - En autonomie - Ajouter un nouveau paramètre au Customizer
   // identifiant : 'fp_texts_title'
   // valeur par défaut : 'Bienvenue !'
   // type : 'theme_mod'
+  $wp_customize->add_parameter(
+    'fp_texts_title',
+    array(
+      'default' => 'Bienvenue!',
+      'type' => 'theme_mod'
+    )
+  );
 
 
 
@@ -148,13 +162,30 @@ function descodeuses_customize_register($wp_customize) {
   // section : 'fp_texts'
   // type : texte - Voir doc pour connaître la valeur à passer :
   // https://developer.wordpress.org/reference/classes/wp_customize_control/__construct/
-
+    $wp_customize->add_control(
+      'fp_texts_title',
+      array(
+        'label' => 'Titre principal',
+        'description' => 'Texte du titre principal',
+        'section' => 'fp_texts',
+        'setting' => 'fp_texts_title', //ne pas oublier le setting qui doit y etre tout le temps
+        'type' => 'text'
+      )
+    );
 
 
   // TODO - En autonomie - Ajouter un nouveau paramètre au Customizer
   // identifiant : 'fp_texts_title_size'
   // valeur par défaut : 90
   // type : 'theme_mod'
+  $wp_customize->add_parameter(
+    'fp_texts_title_size'
+   array(
+     'default' => 90,
+    'type' => 'theme_mod'
+    )
+   );
+
 
 
 
@@ -164,13 +195,29 @@ function descodeuses_customize_register($wp_customize) {
   // section : 'fp_texts'
   // type : nombre - Voir doc pour connaître la valeur à passer :
   // https://developer.wordpress.org/reference/classes/wp_customize_control/__construct/
-
-
+    $wp_customize->add_parameter(
+      new WP_Customize_Container_boxy(
+        $wp_customize,
+          'fp_texts_title_size',
+        array(
+          'label' => 'Taille du titre',
+          'description' => 'Taille du texte du titre principal',
+          'section' => 'fp_texts',
+          'type' => 'number'
+        )
+      );
 
   // TODO - En autonomie - Ajouter un nouveau paramètre au Customizer
   // identifiant : 'fp_texts_description'
   // valeur par défaut : 'Un message d\'accueil personnalisé.'
   // type : 'theme_mod'
+  $wp_customize->add_parameter(
+    'fp_texts_description'
+    array(
+      'default' => 'Un message d\'accueil personnalisé.',
+      'type'    => 'theme_mod'
+    )
+  );
 
 
 
@@ -181,7 +228,15 @@ function descodeuses_customize_register($wp_customize) {
   // type : zone de texte - Voir doc pour connaître la valeur à passer :
   // https://developer.wordpress.org/reference/classes/wp_customize_control/__construct/
 
-
+  $wp_customize->add_parameter(
+    'fp_texts_description'
+    array(
+      'label'   => 'Description',
+      'description' => 'Texte d\'introduction',
+      'section' => 'fp_texts',
+      'type'    => 'textarea'
+    )
+  );
 
   // TODO - En autonomie - Ajouter une nouvelle section au Customizer
   // titre : 'Bouton',
@@ -189,7 +244,15 @@ function descodeuses_customize_register($wp_customize) {
   // description : 'Réglages pour le bouton de la page d\'accueil principale'
   // Cette nouvelle section est une sous-section de 'front_page' (clé 'panel')
 
-
+  $wp_customize->add_section(
+    'fp_texts_description'
+    array(
+      'label'   => 'Description',
+      'description' => 'Texte d\'introduction',
+      'section' => 'fp_texts',
+      'type'    => 'textarea'
+    )
+  );
 
   // TODO - En autonomie - Ajouter un nouveau paramètre au Customizer
   // identifiant : 'fp_button_text'

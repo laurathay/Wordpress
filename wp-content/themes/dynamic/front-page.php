@@ -1,53 +1,19 @@
 <?php get_header(); ?>
-<body>
-  <header class="site-header">
-    <nav class="navigation navigation-top desktop-navigation">
-      <ul>
-        <li><a href="home.html" class="active">Accueil</a></li>
-        <li><a href="#">Boutique</a></li>
-        <li><a href="index.html">Blog</a></li>
-        <li><a href="page.html">Contact</a></li>
-      </ul>
-    </nav>
-    <nav class="navigation navigation-top mobile-navigation">
-      <ul>
-        <li class="mobile-menu"><i class="fa fa-bars fa-1x"></i>
-          <ul class="sub-navigation">
-            <li><a href="home.html" class="active">Accueil</a></li>
-            <li><a href="#">Boutique</a></li>
-            <li><a href="index.html">Blog</a></li>
-            <li><a href="page.html">Contact</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <div class="site-branding">
-      <img src="./assets/images/logo-louvre.png" alt="Logo du site" >
-    </div>
-    <nav class="navigation navigation-aside">
-      <ul>
-        <li><a href="#"><i class="fas fa-search"></i></a></li>
-        <li><a href="#"><i class="fas fa-user"></i></a></li>
-        <li>
-          <a href="#">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="count cart-counter">0</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
   <!-- TODO - Ajouter une balise style à <section> et définir en image de fond l'image du paramètre 'fp_container_image'
             + Si la case "effet boxy" est cochée (clé 'fp_container_boxy'), ajouter la classe CSS "boxy-header"
               à <section> à l'aide de la fonction echo
               Utiliser : get_theme_mod() -->
   <section class="page-header front-page-header"
+  <?php
+  if(get_theme_mod('fp_container_boxy')) echo "boxy-header";
+  ?>
   style="background-image: url('<?php echo get_theme_mod('fp_container_image'); ?>');">
+
     <!-- TODO - Afficher dynamiquement le titre défini dans le paramètre 'fp_texts_title'
               + ajouter une balise style et déterminer en pixel la taille du titré définie
                 dans le paramètre 'fp_texts_title_size' (ne pas oublier le suffixe px)
                 Utiliser : get_theme_mod() -->
-    <h1 class="page-title">Bienvenue !</h1>
+    <h1 class="page-title">Bienvenue !</h1><?php echo get_theme_mod('fp_texts_title'); ?>
     <!-- TODO - Afficher dynamiquement la description définie dans le paramètre 'fp_texts_description'
                 Utiliser : get_theme_mod() -->
     <p class="page-description">
