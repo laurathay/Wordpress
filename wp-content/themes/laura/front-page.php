@@ -1,7 +1,11 @@
 <?php get_header(); ?>
-  <section class="page-header front-page-header">
-    <h1 class="page-title">Bientôt en concert</h1>
-    <a href="#">
+  <section class="page-header front-page-header<?php if(get_theme_mod('fp_container_boxy')) : echo 'boxy-header'; endif; ?>"
+    style="background-image: url('<?php echo get_theme_mod('fp_container_image'); ?>');">
+
+    <h1 class="page-title"style="font-size: <?php echo get_theme_mod('fp_texts_title_size'); ?>px;">
+      <?php echo get_theme_mod('fp_texts_title'); ?></h1>
+
+    <a href="<?php echo get_theme_mod('fp_button_url'); ?>">
       <button type="button" class="call-to-action">
         Réserver mon billet
       </button>
