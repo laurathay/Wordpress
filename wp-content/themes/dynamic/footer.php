@@ -26,14 +26,11 @@
     </div>
     <!-- TODO A la maison - Déclarer une zone de widgets et l'insérer dynamiquement ci-après -->
     <div class="widgets-section widgets-section-4" id="widgets-section-4">
-      <div class="widget">
-        <h4 class="widget-title widgettitle">Zone de widgets 4</h4>
-        <img src="./assets/images/logo-louvre.png" alt="Logo du site" >
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing,
-          sed do eiusmod tempor incididunt.
-        </p>
-      </div>
+      <?php
+        if(is_active_sidebar('widgets-section-4')) :
+          dynamic_sidebar('widgets-section-4');
+        endif;
+       ?>
     </div>
   </section>
   <section class="footer-infos">

@@ -36,7 +36,8 @@
               <!-- TODO Afficher dynamiquement le nombre de commentaire en
                     faisant appel à comments_number() -
                voir https://developer.wordpress.org/reference/functions/comments_number/#user-contributed-notes -->
-               2 commentaires
+               <?php comments_number('Aucun commentaire', '1 commentaire',
+             '% commentaires'); ?>
             </h4>
             </section>
             <h2 class="entry-title">

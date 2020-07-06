@@ -6,10 +6,10 @@
      Penser à vérifier si la vignette est bien définie.
      Utiliser la fonction the_post_thumbnail_url() -->
   <?php if(has_post_thumbnail()) : ?>
-  <section class="page-header" style="background-image: url(<?php the_post_thumbnail_url(); ?>)">
+  <section class="page-header" style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
   <?php else : ?>
   <section class="page-header">
-  <?php endif :?>
+  <?php endif; ?>
     <h1 class="page-title"><?php the_title(); ?></h1>
   </section>
   <main class="container site-content">

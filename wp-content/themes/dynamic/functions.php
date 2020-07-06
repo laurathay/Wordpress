@@ -21,20 +21,11 @@ function descodeuses_setup() {
   // en charge un logo personnalisé.
   // indice : add_theme_support
   // 1. Que fait cette fonction ?
-  // Elle indique a wordpress que notre theme prend en charge une certaine fonctionnalité
+  //  Elle indique à WP que notre thème prend en charge une certaine fonctionnalité
   // 2. Quel argument faut-il passer ? (section 'Parameters')
-  // custom logo (dans Parameters et voir dans feature et regarder ce qui nous concerne)
-  // 3. Faire l'appel de fonction ci-après (ne passer que le premier argument) :add_t
-add_theme_support('custom-logo');
-add_theme_support('post-thumbnail');
-
-  function wpc_theme_support() {
-  	add_theme_support('custom-logo', array(
-  		'flex-height' => true,
-  		'flex-width'  => true,
-  	));
-  }
-  add_action('after_setup_theme','wpc_theme_support');
+  // custom-logo
+  // 3. Faire l'appel de fonction ci-après (ne passer que le premier argument) :
+  add_theme_support('custom-logo');
 }
 
 // WordPress étant un gros CMS, il est nécessaire de configurer beaucoup de
@@ -92,6 +83,30 @@ function descodeuses_init_widgets() {
   );
 
   // TODO A la maison - Enregister les zones de widgets N°4 et barre latérale
+
+  register_sidebar(
+    array(
+      'id'  => 'widgets-section-4',
+      'name'  => 'Zone de widgets 4',
+      'description' => 'Description de la zone de widgets',
+      'before_widget' => '<div class="widget">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h4 class="widget-title widgettitle">',
+      'after_title' => '</h4>'
+    )
+  );
+
+  register_sidebar(
+    array(
+      'id'  => 'widgets-sidebar',
+      'name'  => 'Zone de widgets de la barre latérale',
+      'description' => 'Description de la zone de widgets',
+      'before_widget' => '<div class="widget">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h4 class="widget-title widgettitle">',
+      'after_title' => '</h4>'
+    )
+  );
 }
 
 // Exécution de notre fonction immédiatement après l'exécution de widgets_init
@@ -103,5 +118,6 @@ add_action('widgets_init', 'descodeuses_init_widgets');
 // TODO Autonomie - Inclure le fichier customizer.php en utilisant la
 // fonction get_template_directory()
 // https://developer.wordpress.org/reference/functions/get_template_directory/#user-contributed-notes
-require get_template_directory() . '/inc/customizer.php' ;
+require get_template_directory() . '/inc/customizer.php';
+
  ?>

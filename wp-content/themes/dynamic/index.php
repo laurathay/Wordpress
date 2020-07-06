@@ -12,7 +12,7 @@ Customizer.
 Penser à vérifier si la vignette est bien définie.
 Utiliser la fonction get_theme_mod() - ne passer que le premier argument
  -->
-  <section class="page-header">
+ <section class="page-header" style="background-image: url('<?php echo get_theme_mod('banner_image'); ?>');">
     <h1 class="page-title">Blog</h1>
     <!-- TODO Volontaire - Déclarer une zone de menu "Menu des catégories" et
     l'insérer dynamiquement ci-après -->

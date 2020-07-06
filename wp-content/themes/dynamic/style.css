@@ -941,6 +941,11 @@ body {
   width: 66%;
 }
 
+.entry-content.woocommerce {
+  margin: 0;
+  width: 100%;
+}
+
 .entry .featured-image {
   max-width: 100%;
   margin-bottom: 2rem;
