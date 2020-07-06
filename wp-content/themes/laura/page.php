@@ -6,13 +6,14 @@
 
   <section class="page-header"style="background-image: url(<?php the_post_thumbnail_url(); ?>);">
   <?php endif; ?>
-  
+
     <h1 class="page-title"><?php the_title(); ?></h1>
   </section>
   <main class="container site-content">
       <article class="entry page">
         <section class="entry-content">
         <?php the_content(); ?>
+
           <section class="comments">
             <h3 class="comments-title">Laisser un message</h3>
             <form class="comment-form" action="index.html" method="post">
@@ -25,6 +26,7 @@
               <input type="submit" name="submit" value="Envoyer">
             </form>
           </section>
+          
       </section>
       </article>
     <?php endwhile; ?>

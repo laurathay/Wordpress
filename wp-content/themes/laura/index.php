@@ -17,11 +17,27 @@
           <section class="entry-metadata">
             <section class="entry-data">
               <h6 class="publish-date"><?php the_time('F j, Y'); ?></h6>
-              <h5 class="entry-category"><a href="#">Actualité</a></h5>
-              <h4 class="comments-number"><i class="fas fa-comment"></i> 3</h4>
+
+              <?php
+                            $categories = get_the_category();
+                            $separator = " ";
+                            $output = '';
+
+                            if($categories) {
+                              forEach($categories as $category) {
+
+                                $output .= '<h5 class="entry-category"><a href="'.get_category_link($category
+                                ->term_id).'">'.$category->cat_name .'</a></h5>' . $separator;
+                              }
+                            }
+                            echo trim($output, $separator);
+              ?>
+
+              <!-- <h5 class="entry-category"><a href="#">Actualité</a></h5>
+              <h4 class="comments-number"><i class="fas fa-comment"></i> 3</h4> -->
             </section>
             <h2 class="entry-title">
-              <a href="single.html">Vos meilleurs moments en concert</a>
+              <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
             </h2>
           </section>
         </header>
