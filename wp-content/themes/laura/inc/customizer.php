@@ -98,6 +98,38 @@ function laura_customize_register($wp_customize) {
     )
   );
 
+  $wp_customize->add_setting(
+    'fp_container_image2',
+    array(
+    'default'   => get_template_directory() . '/assets/images/yannis-papanastasopoulos-unsplash.jpg',
+    'type'      => 'theme_mod'
+    )
+  );
+
+  $wp_customize->add_setting(
+    'fp_container_image_mini',
+    array(
+    'default'   => get_template_directory() . '/assets/images/bougie.png',
+    'type'      => 'theme_mod'
+    )
+  );
+
+  $wp_customize->add_setting(
+    'fp_container_image_mini2',
+    array(
+    'default'   => get_template_directory() . '/assets/images/son.png',
+    'type'      => 'theme_mod'
+    )
+  );
+
+  $wp_customize->add_setting(
+    'fp_container_image_mini3',
+    array(
+    'default'   => get_template_directory() . '/assets/images/ticket.png',
+    'type'      => 'theme_mod'
+    )
+  );
+
   // TODO - En autonomie - Ajouter un contrôleur associé au paramètre 'fp_container_image'
   // et permettant de sélectionner une image depuis la bibliothèque de médias WP
   // libellé : 'Image de fond'
@@ -110,6 +142,58 @@ function laura_customize_register($wp_customize) {
       array(
         'label'   => 'Image de fond',
         'description'   => 'Image de fond du conteneur de la page d\'accueil',
+        'section' => 'fp_container',
+        'setting'  => 'fp_container_image'
+      )
+    )
+  );
+
+  $wp_customize->add_control(
+    new WP_Customize_Image_control(
+      $wp_customize,
+      'fp_container_image2',
+      array(
+        'label'   => 'Image de présentation',
+        'description'   => 'Image du conteneur de la page d\'accueil',
+        'section' => 'fp_container',
+        'setting'  => 'fp_container_image'
+      )
+    )
+  );
+
+  $wp_customize->add_control(
+    new WP_Customize_Image_control(
+      $wp_customize,
+      'fp_container_image_mini',
+      array(
+        'label'   => 'Petite picto',
+        'description'   => 'Petite picto du conteneur de la page d\'accueil',
+        'section' => 'fp_container',
+        'setting'  => 'fp_container_image'
+      )
+    )
+  );
+
+  $wp_customize->add_control(
+    new WP_Customize_Image_control(
+      $wp_customize,
+      'fp_container_image_mini2',
+      array(
+        'label'   => 'Petite picto',
+        'description'   => 'Petite picto du conteneur de la page d\'accueil',
+        'section' => 'fp_container',
+        'setting'  => 'fp_container_image'
+      )
+    )
+  );
+
+  $wp_customize->add_control(
+    new WP_Customize_Image_control(
+      $wp_customize,
+      'fp_container_image_mini3',
+      array(
+        'label'   => 'Petite picto',
+        'description'   => 'Petite picto du conteneur de la page d\'accueil',
         'section' => 'fp_container',
         'setting'  => 'fp_container_image'
       )
@@ -174,6 +258,38 @@ function laura_customize_register($wp_customize) {
     )
   );
 
+  $wp_customize->add_setting(
+    'fp_texts_title_extra',
+    array(
+    'default'     => 'extra titre',
+    'type'        => 'theme_mod'
+    )
+  );
+
+  $wp_customize->add_setting(
+    'fp_texts_title2',
+    array(
+    'default'     => '2eme titre',
+    'type'        => 'theme_mod'
+    )
+  );
+
+  $wp_customize->add_setting(
+    'fp_texts_title3',
+    array(
+    'default'     => '3eme titre',
+    'type'        => 'theme_mod'
+    )
+  );
+
+  $wp_customize->add_setting(
+    'fp_texts_title4',
+    array(
+    'default'     => '3eme titre',
+    'type'        => 'theme_mod'
+    )
+  );
+
   // TODO - En autonomie - Ajouter un contrôleur associé au paramètre 'fp_texts_title'
   // libellé : 'Titre principal'
   // description : 'Texte du titre principal'
@@ -190,6 +306,52 @@ function laura_customize_register($wp_customize) {
       'type'           => 'text'
     )
   );
+
+  $wp_customize->add_control(
+    'fp_texts_title_extra',
+    array(
+      'label'          => 'titre extra ',
+      'description'    => 'Texte du titre extra',
+      'section'        => 'fp_texts',
+      'setting'        => 'fp_texts_title',
+      'type'           => 'text'
+    )
+  );
+
+  $wp_customize->add_control(
+    'fp_texts_title2',
+    array(
+      'label'          => '2eme titre ',
+      'description'    => 'Texte du 2eme titre',
+      'section'        => 'fp_texts',
+      'setting'        => 'fp_texts_title',
+      'type'           => 'text'
+    )
+  );
+
+  $wp_customize->add_control(
+    'fp_texts_title3',
+    array(
+      'label'          => '3eme titre ',
+      'description'    => 'Texte du 3eme titre',
+      'section'        => 'fp_texts',
+      'setting'        => 'fp_texts_title',
+      'type'           => 'text'
+    )
+  );
+
+  $wp_customize->add_control(
+    'fp_texts_title4',
+    array(
+      'label'          => '4eme titre ',
+      'description'    => 'Texte du 4eme titre',
+      'section'        => 'fp_texts',
+      'setting'        => 'fp_texts_title',
+      'type'           => 'text'
+    )
+  );
+
+
 
   // TODO - En autonomie - Ajouter un nouveau paramètre au Customizer
   // identifiant : 'fp_texts_title_size'
@@ -220,6 +382,7 @@ function laura_customize_register($wp_customize) {
     )
   );
 
+
   // TODO - En autonomie - Ajouter un nouveau paramètre au Customizer
   // identifiant : 'fp_texts_description'
   // valeur par défaut : 'Un message d\'accueil personnalisé.'
@@ -232,6 +395,16 @@ function laura_customize_register($wp_customize) {
     )
   );
 
+  $wp_customize->add_setting(
+    'fp_texts_description_extra',
+    array(
+    'default'     => 'Un message extra personnalisé.',
+    'type'        => 'theme_mod'
+    )
+  );
+
+
+
   // TODO - En autonomie - Ajouter un contrôleur associé au paramètre 'fp_texts_description'
   // libellé : 'Description'
   // description : 'Texte d\'introduction'
@@ -243,6 +416,17 @@ function laura_customize_register($wp_customize) {
     array(
       'label'          => 'Description',
       'description'    => 'Texte d\'introduction',
+      'section'        => 'fp_texts',
+      'setting'        => 'fp_texts_description',
+      'type'           => 'textarea'
+    )
+  );
+
+  $wp_customize->add_control(
+    'fp_texts_description_extra',
+    array(
+      'label'          => 'Description',
+      'description'    => 'Texte extra',
       'section'        => 'fp_texts',
       'setting'        => 'fp_texts_description',
       'type'           => 'textarea'
@@ -275,6 +459,14 @@ function laura_customize_register($wp_customize) {
     )
   );
 
+  $wp_customize->add_setting(
+    'fp_button_text_bis',
+    array(
+    'default'     => 'Un appel à l\'action',
+    'type'        => 'theme_mod'
+    )
+  );
+
   // TODO - En autonomie - Ajouter un contrôleur associé au paramètre 'fp_button_text'
   // libellé : 'Bouton'
   // description : 'Texte du bouton'
@@ -283,6 +475,17 @@ function laura_customize_register($wp_customize) {
   // https://developer.wordpress.org/reference/classes/wp_customize_control/__construct/
   $wp_customize->add_control(
     'fp_button_text',
+    array(
+      'label'          => 'Bouton',
+      'description'    => 'Texte du bouton',
+      'section'        => 'fp_button',
+      'setting'        => 'fp_button_text',
+      'type'           => 'text'
+    )
+  );
+
+  $wp_customize->add_control(
+    'fp_button_text_bis',
     array(
       'label'          => 'Bouton',
       'description'    => 'Texte du bouton',
@@ -304,6 +507,14 @@ function laura_customize_register($wp_customize) {
     )
   );
 
+  $wp_customize->add_setting(
+    'fp_button_url_bis',
+    array(
+    'default'     => '',
+    'type'        => 'theme_mod'
+    )
+  );
+
   // TODO - En autonomie - Ajouter un contrôleur associé au paramètre 'fp_button_url'
   // libellé : 'Lien'
   // description : 'Adresse URL du bouton'
@@ -314,6 +525,17 @@ function laura_customize_register($wp_customize) {
     'fp_button_url',
     array(
       'label'          => 'Lien',
+      'description'    => 'Adresse URL du bouton',
+      'section'        => 'fp_button',
+      'setting'        => 'fp_button_url',
+      'type'           => 'url'
+    )
+  );
+
+  $wp_customize->add_control(
+    'fp_button_url_bis',
+    array(
+      'label'          => 'Lien bis',
       'description'    => 'Adresse URL du bouton',
       'section'        => 'fp_button',
       'setting'        => 'fp_button_url',

@@ -2,8 +2,9 @@
   <section class="page-header front-page-header<?php if(get_theme_mod('fp_container_boxy')) : echo 'boxy-header'; endif; ?>"
     style="background-image: url('<?php echo get_theme_mod('fp_container_image'); ?>');">
 
-    <h1 class="page-title"style="font-size: <?php echo get_theme_mod('fp_texts_title_size'); ?>px;">
-      <?php echo get_theme_mod('fp_texts_title'); ?></h1>
+    <h1 class="page-title">
+      <?php echo get_theme_mod('fp_texts_title'); ?>
+    </h1>
 
     <a href="<?php echo get_theme_mod('fp_button_url'); ?>">
 
@@ -14,26 +15,15 @@
   </section>
   <main class="container front-content">
     <section class="custom-presentation">
-      <img src="./assets/images/yannis-papanastasopoulos-unsplash.jpg" alt="">
+      <img src="<?php echo get_theme_mod('fp_container_image2'); ?>" alt="">
       <div class="custom-presentation-infos">
-        <h2 class="custom-title">Un super groupe de musique</h2>
+         <h2 class="custom-title"style="font-size: <?php echo get_theme_mod('fp_texts_title_size'); ?>px;">
+       <?php echo get_theme_mod('fp_texts_title_extra'); ?></h2>
         <p class="custom-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing,
-          sed do eiusmod tempor incididunt.
+          <?php echo get_theme_mod('fp_texts_description_extra'); ?>
 
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-          quae ab illo inventore veritatis et quasi architecto beatae vitae
-          dicta sunt explicabo.
-
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat
-          nulla pariatur.
         </p>
-        <a href="page.html">
+        <a href="<?php echo get_theme_mod('fp_button_url_bis'); ?>">
           <button type="button" class="call-to-action">En savoir plus</button>
         </a>
       </div>
@@ -41,9 +31,10 @@
     <section class="custom-blocks">
       <div class="custom-block">
 
-        <i class="fas fa-birthday-cake fa-3x"></i>
-        <h3 class="custom-title"style="font-size: <?php echo get_theme_mod('fp_texts_title_size'); ?>px;">
-      <?php echo get_theme_mod('fp_texts_title'); ?></h3>
+        <img src="<?php echo get_theme_mod('fp_container_image_mini'); ?>">
+        <h3 class="custom-title">
+      <?php echo get_theme_mod('fp_texts_title2'); ?>
+        </h3>
         <p class="custom-content">
           <?php echo get_theme_mod('fp_texts_description'); ?>
 
@@ -51,18 +42,20 @@
       </div>
       <div class="custom-block">
 
-         <i class="fas fa-music fa-3x"></i>
-        <h3 class="custom-title"style="font-size: <?php echo get_theme_mod('fp_texts_title_size'); ?>px;">
-      <?php echo get_theme_mod('fp_texts_title'); ?></h3>
+        <img src="<?php echo get_theme_mod('fp_container_image_mini2'); ?>">
+        <h3 class="custom-title">
+      <?php echo get_theme_mod('fp_texts_title3'); ?>
+        </h3>
         <p class="custom-content">
            <?php echo get_theme_mod('fp_texts_description'); ?>
         </p>
       </div>
       <div class="custom-block">
 
-         <i class="fas fa-ticket-alt fa-3x"></i>
-        <h3 class="custom-title"style="font-size: <?php echo get_theme_mod('fp_texts_title_size'); ?>px;">
-      <?php echo get_theme_mod('fp_texts_title'); ?></h3>
+        <img src="<?php echo get_theme_mod('fp_container_image_mini3'); ?>">
+        <h3 class="custom-title">
+      <?php echo get_theme_mod('fp_texts_title4'); ?>
+        </h3>
         <p class="custom-content">
           <?php echo get_theme_mod('fp_texts_description'); ?>
 
