@@ -40,27 +40,32 @@
     </section>
     <section class="custom-blocks">
       <div class="custom-block">
+
         <i class="fas fa-birthday-cake fa-3x"></i>
-        <h3 class="custom-title">Concert célébration</h3>
+        <h3 class="custom-title"style="font-size: <?php echo get_theme_mod('fp_texts_title_size'); ?>px;">
+      <?php echo get_theme_mod('fp_texts_title'); ?></h3>
         <p class="custom-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing,
-          sed do eiusmod tempor incididunt.
+          <?php echo get_theme_mod('fp_texts_description'); ?>
+
         </p>
       </div>
       <div class="custom-block">
-        <i class="fas fa-music fa-3x"></i>
-        <h3 class="custom-title">L'amour de la musique</h3>
+
+         <i class="fas fa-music fa-3x"></i>
+        <h3 class="custom-title"style="font-size: <?php echo get_theme_mod('fp_texts_title_size'); ?>px;">
+      <?php echo get_theme_mod('fp_texts_title'); ?></h3>
         <p class="custom-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing,
-          sed do eiusmod tempor incididunt.
+           <?php echo get_theme_mod('fp_texts_description'); ?>
         </p>
       </div>
       <div class="custom-block">
-        <i class="fas fa-ticket-alt fa-3x"></i>
-        <h3 class="custom-title">+3000 tickets en vente</h3>
+
+         <i class="fas fa-ticket-alt fa-3x"></i>
+        <h3 class="custom-title"style="font-size: <?php echo get_theme_mod('fp_texts_title_size'); ?>px;">
+      <?php echo get_theme_mod('fp_texts_title'); ?></h3>
         <p class="custom-content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing,
-          sed do eiusmod tempor incididunt.
+          <?php echo get_theme_mod('fp_texts_description'); ?>
+
         </p>
       </div>
     </section>

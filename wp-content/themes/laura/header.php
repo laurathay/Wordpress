@@ -14,7 +14,11 @@
 <body <?php body_class(); ?>>
   <header class="site-header">
     <div class="site-branding">
-      <a href="index.html"><img src="<?php get_custom_logo(); ?>" alt="Logo du site"></a>
+      <?php
+        if(has_custom_logo()) :
+          the_custom_logo();
+        endif;
+       ?>
     </div>
     <nav class="navigation navigation-top desktop-navigation">
       <?php
@@ -64,13 +68,10 @@
    - bloginfo() : récupérer l'url du site (pour redirection) et le nom du site
      > Quels arguments faut-il passer pour avoir ces informations ?
    -->
-   <?php if(has_custom_logo()) :
-      the_custom_logo();
-    else: ?>
+
      <a href="<?php bloginfo('url'); ?>">
        <?php bloginfo('name'); ?>
      </a>
-   <?php endif; ?>
  </div>
 
     <nav class="navigation navigation-aside">
