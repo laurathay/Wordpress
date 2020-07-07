@@ -52,7 +52,7 @@
   </section>
  <section class="footer-infos container">
     <div class="copyright">
-      <p>© <?php echo date('Y'); echo bloginfo("name"); echo" Tous droits réservés." ?> </p>
+      <p>© <?php echo date('Y'); bloginfo("name"); echo" Tous droits réservés." ?> </p>
     </div>
     <div class="social-medias">
       <nav class="navigation navigation-bottom">

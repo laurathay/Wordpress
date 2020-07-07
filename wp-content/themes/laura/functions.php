@@ -41,7 +41,7 @@ function laura_setup() {
 // exécuter la fonction descodeuses_setup"
 // De cette façon, il est certain que WP a terminé ses propres configurations
 // avant de prendre en charge les nôtres. On évite donc les bugs ! :)
-add_action('after_setup_theme', 'descodeuses_setup');
+add_action('after_setup_theme', 'laura_setup');
 
 function laura_init_widgets() {
   // TODO COURS - Enregistrer une zone de widget N°1

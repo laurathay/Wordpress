@@ -14,7 +14,7 @@
 <body <?php body_class(); ?>>
   <header class="site-header">
     <div class="site-branding">
-      <a href="index.html"><img src="./assets/images/logo-rock-band.png" alt="Logo du site"></a>
+      <a href="index.html"><img src="<?php get_custom_logo(); ?>" alt="Logo du site"></a>
     </div>
     <nav class="navigation navigation-top desktop-navigation">
       <?php
