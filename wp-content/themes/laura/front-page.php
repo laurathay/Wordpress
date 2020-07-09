@@ -24,7 +24,7 @@
 
         </p>
         <a href="<?php echo get_theme_mod('fp_button_url_bis'); ?>">
-          <button type="button" class="call-to-action<?php echo get_theme_mod('fp_button_style'); ?>">
+          <button type="button" class="call-to-action<?php echo get_theme_mod('fp_button_style_bis'); ?>">
             <?php echo get_theme_mod('fp_button_text_bis'); ?></button>
         </a>
       </div>

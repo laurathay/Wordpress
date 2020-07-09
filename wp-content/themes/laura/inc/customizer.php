@@ -540,6 +540,15 @@ function laura_customize_register($wp_customize) {
     )
   );
 
+  $wp_customize -> add_section(
+    'fp_button_bis',
+    array(
+      'title'         => 'Bouton',
+      'description'   => 'Réglages pour le 2eme bouton de la page d\'accueil principale',
+      'panel'         => 'front_page'
+    )
+  );
+
   // TODO - En autonomie - Ajouter un nouveau paramètre au Customizer
   // identifiant : 'fp_button_text'
   // valeur par défaut : 'Un appel à l\'action'
@@ -581,7 +590,7 @@ function laura_customize_register($wp_customize) {
     'fp_button_text_bis',
     array(
       'label'          => 'Bouton',
-      'description'    => 'Texte du bouton',
+      'description'    => 'Texte du 2eme bouton',
       'section'        => 'fp_button',
       'setting'        => 'fp_button_text',
       'type'           => 'text'
@@ -629,10 +638,10 @@ function laura_customize_register($wp_customize) {
     'fp_button_url_bis',
     array(
       'label'          => 'Lien bis',
-      'description'    => 'Adresse URL du bouton',
+      'description'    => 'Adresse URL du 2eme bouton',
       'section'        => 'fp_button',
       'setting'        => 'fp_button_url',
-      'type'           => 'url'
+      'type'           => 'dropdown-pages'
     )
   );
 
@@ -642,6 +651,14 @@ function laura_customize_register($wp_customize) {
   // type : 'theme_mod'
   $wp_customize->add_setting(
     'fp_button_style',
+    array(
+    'default'     => 'btn-style-1',
+    'type'        => 'theme_mod'
+    )
+  );
+
+  $wp_customize->add_setting(
+    'fp_button_style_bis',
     array(
     'default'     => 'btn-style-1',
     'type'        => 'theme_mod'
@@ -674,6 +691,21 @@ function laura_customize_register($wp_customize) {
     )
   );
 
+  $wp_customize->add_control(
+    'fp_button_style_bis',
+    array(
+      'label'          => 'Style',
+      'description'    => 'Style du 2eme bouton',
+      'section'        => 'fp_button',
+      'setting'        => 'fp_button_style',
+      'type'           => 'radio',
+      'choices'        => array(
+                            'custom-quote-style-1' => 'Style 1',
+                            'custom-quote-style-2' => 'Style 2',
+                            'custom-quote-style-3' => 'Style 3'
+                          )
+    )
+  );
   // TODO - En autonomie - Ajouter une nouvelle section au Customizer
   // titre : 'Citation',
   // identifiant : 'fp_quote'
