@@ -2,8 +2,8 @@
   <section class="page-header front-page-header<?php if(get_theme_mod('fp_container_boxy')) : echo 'boxy-header'; endif; ?>"
     style="background-image: url('<?php echo get_theme_mod('fp_container_image'); ?>');">
 
-    <h1 class="page-title">
-      <?php echo get_theme_mod('fp_texts_title'); ?>
+    <h1 class="page-title" style="font-size: <?php echo get_theme_mod('fp_texts_title'); ?>px;">
+      <?php echo (get_theme_mod('fp_texts_title'));?>
     </h1>
 
     <a href="<?php echo get_theme_mod('fp_button_url'); ?>">
@@ -33,7 +33,7 @@
       <div class="custom-block">
 
         <img src="<?php echo get_theme_mod('fp_container_image_mini'); ?>">
-        <h3 class="custom-title">
+        <h3 class="custom-title"style="font-size: <?php echo get_theme_mod('fp_texts_title_size2'); ?>px;">>
       <?php echo get_theme_mod('fp_texts_title2'); ?>
         </h3>
         <p class="custom-content">
@@ -44,7 +44,7 @@
       <div class="custom-block">
 
         <img src="<?php echo get_theme_mod('fp_container_image_mini2'); ?>">
-        <h3 class="custom-title">
+        <h3 class="custom-title"style="font-size: <?php echo get_theme_mod('fp_texts_title_size3'); ?>px;">>
       <?php echo get_theme_mod('fp_texts_title3'); ?>
         </h3>
         <p class="custom-content">
@@ -54,7 +54,7 @@
       <div class="custom-block">
 
         <img src="<?php echo get_theme_mod('fp_container_image_mini3'); ?>">
-        <h3 class="custom-title">
+        <h3 class="custom-title"style="font-size: <?php echo get_theme_mod('fp_texts_title_size4'); ?>px;">>
       <?php echo get_theme_mod('fp_texts_title4'); ?>
         </h3>
         <p class="custom-content">

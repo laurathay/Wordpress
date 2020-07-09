@@ -53,9 +53,20 @@
         </header>
         <section class="entry-content">
           <?php the_content(); ?>
-
         </section>
-        <footer class="entry-footer">
+      <footer class="entry-footer">
+        <section class="author-card">
+                  <section class="author-thumbnail">
+                    <?php echo get_avatar( get_the_author_meta( 'ID' ), 96, 'retro', 'Photo de l\'auteur', ['class' => 'author-picture'] ); ?>
+                  </section>
+                  <section class="author-metadata">
+                                <h3 class="author-meta-name"><?php the_author(); ?></h3>
+                                <p class="author-meta-description">
+                                  <?php (the_author_meta('description')); ?>
+                                </p>
+                  </section>
+        </section>
+          <nav class="navigation pagination entry-pagination">
           <?php
                     // Structure du tableau d'arguments : https://developer.wordpress.org/reference/functions/get_the_post_navigation/
                     // %title : indique à WP qu'il faut inclure le nom de l'article suivant/ précédent
@@ -66,7 +77,10 @@
                       )
                     );
           ?>
+          </nav>
+          <section class="comments">
           <?php comments_template(); ?>
+        </section>
         </footer>
       </article>
     <?php endwhile; ?>

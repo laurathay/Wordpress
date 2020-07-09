@@ -1,10 +1,6 @@
-<!-- si cocher affiche la side bar hideen -->
+<!-- si cocher affiche la side bar hideen --> 
 
- <?php if(checked('widgets-sidebar')) :
-   echo hidden('widgets-sidebar');
-     endif; ?>"
-
-<aside class="sidebar hidden">
+<aside class="sidebar  <?php if(get_theme_mod('widgets-sidebar')) : echo 'hidden'; endif; ?>" id="widgets-sidebar">
   <?php
     if(is_active_sidebar('widgets-sidebar')) :
       dynamic_sidebar('widgets-sidebar');

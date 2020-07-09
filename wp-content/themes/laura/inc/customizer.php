@@ -221,12 +221,20 @@ function laura_customize_register($wp_customize) {
   // EXEMPLE D'USAGE D'UN CONTRÔLE CLASSIQUE (checkbox) ne faisant pas appel à une classe WP
   // il suffit de spécifier le type du contrôle dans la clé 'type' du tableau de propriétés
   // du contrôle
+
+  $wp_customize -> add_panel(
+    'option-widget-sidebar',
+    array(
+      'title'         => 'Si tu veux afficher ta sidebar' // On ne détermine que le titre,
+      // la description n'est pas prise en charge pour le panel (ne s'affichera pas)
+    )
+  );
   $wp_customize->add_section(
     'Ma-Super-Checkbox',
     array(
-      'title'         => 'Option du thème',
-      'description'   => 'Tout tes widgets',
-      'panel'         => 'front_page'
+      'title'         => 'Zone de widgets latérale',
+      'description'   => 'Masquer la zone de widgets',
+      'panel'         => 'option-widget-sidebar'
     )
 
   );
@@ -234,15 +242,15 @@ function laura_customize_register($wp_customize) {
   $wp_customize->add_setting(
     'widgets-sidebar',
     array(
-    'default'     => 'Tu veux afficher ce widget?',
+    'default'     => false,
     'type'        => 'theme_mod'
     )
   );
   $wp_customize->add_control(
     'widgets-sidebar', // 1er arg : identifiant du paramètre auquel associer le contrôle
     array( // 2e arg : tableau de propriétés du contrôle
-      'label'          => 'Afficher ou non le widget',
-      'description'    => 'Widget sidebar de l\'article.',
+      'label'          => 'Zone de widgets latérale',
+      'description'    => 'Masquer la zone de widgets',
       'section'        => 'Ma-Super-Checkbox', // identifiant de la section dans laquelle afficher le contrôle
       'setting'        => 'widgets-sidebar', // on rappelle de nouveau l'identifiant du paramètre auquel associer le contrôle
       'type'           => 'checkbox' // on détermine le type du contrôle
@@ -393,6 +401,30 @@ function laura_customize_register($wp_customize) {
     )
   );
 
+  $wp_customize->add_setting(
+    'fp_texts_title_size2',
+    array(
+    'default'     => 50,
+    'type'        => 'theme_mod'
+    )
+  );
+
+  $wp_customize->add_setting(
+    'fp_texts_title_size3',
+    array(
+    'default'     => 50,
+    'type'        => 'theme_mod'
+    )
+  );
+
+  $wp_customize->add_setting(
+    'fp_texts_title_size4',
+    array(
+    'default'     => 50,
+    'type'        => 'theme_mod'
+    )
+  );
+
   // TODO - En autonomie - Ajouter un contrôleur associé au paramètre 'fp_texts_title_size'
   // libellé : 'Taille du titre'
   // description : 'Taille du texte du titre principal'
@@ -404,6 +436,39 @@ function laura_customize_register($wp_customize) {
     array(
       'label'          => 'Taille du titre',
       'description'    => 'Taille du texte du titre principal',
+      'section'        => 'fp_texts',
+      'setting'        => 'fp_texts_title_size',
+      'type'           => 'number'
+    )
+  );
+
+  $wp_customize->add_control(
+    'fp_texts_title_size2',
+    array(
+      'label'          => 'Taille du titre',
+      'description'    => 'Taille du texte du petit titre 1',
+      'section'        => 'fp_texts',
+      'setting'        => 'fp_texts_title_size',
+      'type'           => 'number'
+    )
+  );
+
+  $wp_customize->add_control(
+    'fp_texts_title_size3',
+    array(
+      'label'          => 'Taille du titre',
+      'description'    => 'Taille du texte du petit titre 2',
+      'section'        => 'fp_texts',
+      'setting'        => 'fp_texts_title_size',
+      'type'           => 'number'
+    )
+  );
+
+  $wp_customize->add_control(
+    'fp_texts_title_size4',
+    array(
+      'label'          => 'Taille du titre',
+      'description'    => 'Taille du texte du petit titre 3',
       'section'        => 'fp_texts',
       'setting'        => 'fp_texts_title_size',
       'type'           => 'number'
