@@ -221,6 +221,34 @@ function laura_customize_register($wp_customize) {
   // EXEMPLE D'USAGE D'UN CONTRÔLE CLASSIQUE (checkbox) ne faisant pas appel à une classe WP
   // il suffit de spécifier le type du contrôle dans la clé 'type' du tableau de propriétés
   // du contrôle
+  $wp_customize->add_section(
+    'Ma-Super-Checkbox',
+    array(
+      'title'         => 'Option du thème',
+      'description'   => 'Tout tes widgets',
+      'panel'         => 'front_page'
+    )
+
+  );
+
+  $wp_customize->add_setting(
+    'widgets-sidebar',
+    array(
+    'default'     => 'Tu veux afficher ce widget?',
+    'type'        => 'theme_mod'
+    )
+  );
+  $wp_customize->add_control(
+    'widgets-sidebar', // 1er arg : identifiant du paramètre auquel associer le contrôle
+    array( // 2e arg : tableau de propriétés du contrôle
+      'label'          => 'Afficher ou non le widget',
+      'description'    => 'Widget sidebar de l\'article.',
+      'section'        => 'Ma-Super-Checkbox', // identifiant de la section dans laquelle afficher le contrôle
+      'setting'        => 'widgets-sidebar', // on rappelle de nouveau l'identifiant du paramètre auquel associer le contrôle
+      'type'           => 'checkbox' // on détermine le type du contrôle
+    )
+  );
+
   $wp_customize->add_control(
     'fp_container_boxy', // 1er arg : identifiant du paramètre auquel associer le contrôle
     array( // 2e arg : tableau de propriétés du contrôle
@@ -692,6 +720,35 @@ function laura_customize_register($wp_customize) {
                           )
     )
   );
+
+  $wp_customize->add_section(
+    'footer',
+    array(
+      'title' => 'Footer',
+      'description' => 'Personnalisation'
+    )
+  );
+
+  $wp_customize -> add_setting(
+    'copyright_text',
+    array(
+      'default' => 'Tous droits réservés',
+      'type' => 'theme_mod'
+    )
+  );
+
+  $wp_customize -> add_control(
+    'copyright_text',
+    array(
+      'label' => 'Texte copyright',
+      'description' => 'Texte du champ copyright',
+      'section' => 'footer',
+      'setting' => 'copyright_text',
+      'type' => 'text'
+    )
+  );
+
+
 
 }
 

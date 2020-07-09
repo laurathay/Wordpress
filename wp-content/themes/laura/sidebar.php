@@ -1,4 +1,10 @@
-<aside class="sidebar">
+<!-- si cocher affiche la side bar hideen -->
+
+ <?php if(checked('widgets-sidebar')) :
+   echo hidden('widgets-sidebar');
+     endif; ?>"
+
+<aside class="sidebar hidden">
   <?php
     if(is_active_sidebar('widgets-sidebar')) :
       dynamic_sidebar('widgets-sidebar');
