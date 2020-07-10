@@ -1,5 +1,5 @@
 <?php
-
+load_theme_textdomain( 'laura','../languages' );
 // On crée une fonction qui regroupera tous les appels à des fonctions WP
 // prédéfinies qui ont pour but de configurer les fonctionnnalités prises
 // en charge par notre thème - toutes nos zones de menu seront déclarées ici

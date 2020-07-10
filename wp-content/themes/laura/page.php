@@ -15,18 +15,18 @@
         <?php the_content(); ?>
 
           <section class="comments">
-            <h3 class="comments-title">Laisser un message</h3>
+            <h3 class="comments-title"><?php _e('Laisser un message', 'laura'); ?></h3>
             <form class="comment-form" action="index.html" method="post">
-              <label for="name">Nom</label>
+              <label for="name"><?php _e('Nom', 'laura'); ?></label>
               <input type="text" name="name" required>
-              <label for="email">E-mail</label>
+              <label for="email"><?php _e('E-mail', 'laura'); ?></label>
               <input type="email" name="email" required>
-              <label for="comment">Commentaire</label>
+              <label for="comment"><?php _e('Commentaire', 'laura'); ?></label>
               <input type="textarea" rows="10" cols="80" name="comment" required>
               <input type="submit" name="submit" value="Envoyer">
             </form>
           </section>
-          
+
       </section>
       </article>
     <?php endwhile; ?>

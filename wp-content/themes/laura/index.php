@@ -52,7 +52,7 @@
         </section>
         <footer class="entry-footer">
           <div class="read-more">
-            <a href="<?php the_permalink(); ?>">Lire la suite</a>
+            <a href="<?php the_permalink(); ?>"><?php _e('Lire la suite', 'laura'); ?></a>
           </div>
         </footer>
       </article>
