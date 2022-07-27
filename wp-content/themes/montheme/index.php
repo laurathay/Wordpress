@@ -13,6 +13,36 @@ Hello world : <?php wp_title() ?>
             -
             <?php the_author() ?>
         </li>
+
+        <div class="card-group">
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title"><?php the_title() ?></h5>
+                <p class="card-text"><?php the_content() ?></p>
+                <p class="card-text"><small class="text-muted"><?php the_category() ?></small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title"><?php the_title() ?></h5>
+                <p class="card-text"><?php the_content() ?></p>
+                <p class="card-text"><small class="text-muted"><?php the_category() ?></small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title"> <?php the_title() ?></h5>
+                <p class="card-text"><?php the_content() ?></p>
+                <p class="card-text"><small class="text-muted"><?php the_category() ?></small></p>
+                </div>
+            </div>
+            </div>
+
+
+
     <?php endwhile ?>
     </ul>
 <?php else: ?>
