@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Titre de la page</title>
-	<?php wp_head() ?>  // pour faire apparaitre la banner de wordpress
+  <!--  // pour faire apparaitre la banner de wordpress -->
+	<?php wp_head() ?>  
 
 </head>
 <body>

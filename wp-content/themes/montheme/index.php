@@ -16,6 +16,7 @@ Hello world : <?php wp_title() ?>
 
         <div class="card-group">
             <div class="card">
+                <?php the_post_thumbnail('post_thumbnail', ['class' => 'card-img-top', 'alt' => '']) ?>
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
                 <h5 class="card-title"><?php the_title() ?></h5>

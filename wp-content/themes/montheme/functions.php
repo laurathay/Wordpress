@@ -2,6 +2,7 @@
 
 function mon_theme_support() {
 	add_theme_support('title_tag');
+    add_theme_support('post_thumbnails');
 }
 
 function mon_theme_register_assets() {
